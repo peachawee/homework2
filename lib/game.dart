@@ -7,7 +7,7 @@ class Game  {
     r = Random();
   }
 
-  void checkLv({String? lv}) {
+  void checkLv({String? lv : 'normal'}) {
     if( lv == 'expert'){
       answer = r.nextInt(10000)+1;
     }else if( lv == 'hard'){

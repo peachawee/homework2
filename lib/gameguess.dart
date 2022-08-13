@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'dart:math';
-
 import 'game.dart';
+
+var myList = <int>[];
 
 void main(){
   var game = Game();
@@ -51,6 +52,7 @@ void main(){
     }
     result = game.doGuess(guess);
   }
+    myList.add(count);
 
   while(true) {
     stdout.write('You want to play again? (y|n) : ');
@@ -64,7 +66,11 @@ void main(){
       doAgian();
       break;
     } else if (w == 0) {
-      print('End game!');
+      print("You've played $myList.length games");
+      for(int i=0; i<myList.length; i++){
+        print("🚀 Game #"+ (i+1).toString() +":" + myList[i].toString() + "guesses");
+      }
+      print('❤End game!');
       break;
     }
   }
@@ -120,6 +126,7 @@ void doAgian() {
     }
     result = game.doGuess(guess);
   }
+  myList.add(count);
 
   while(true) {
     stdout.write('You want to play again? (y|n) : ');
@@ -133,7 +140,11 @@ void doAgian() {
       doAgian();
       break;
     } else if (w == 0) {
-      print('End game!');
+      print("You've played " + myList.length.toString() + " games");
+      for(int i=0; i<myList.length; i++){
+        print("🚀 Game #"+ (i+1).toString() +": " + myList[i].toString() + " guesses");
+      }
+      print('❤End game!');
       break;
     }
   }
